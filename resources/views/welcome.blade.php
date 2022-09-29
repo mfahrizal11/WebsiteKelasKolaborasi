@@ -151,7 +151,7 @@
             <div class="colm-form">
                 <img src="{{ url('assets/logo-untan-pontianak.png') }}" width="150" alt="Logo" style="margin-bottom: 1rem;">
                 <div class="form-container">
-                    <h3 style="margin-top: .5rem; margin-bottom: 1rem;">Masuk ke Rusunawa Untan</h3>
+                    <h3 style="margin-top: .5rem; margin-bottom: 1rem;">Login admin kelas Kolaborasi</h3>
                     @if (count($errors) > 0)
                     <div style="background-color: #ff001ecb; color:#fff;padding:.5rem 0; border-radius:10px;">
                         @foreach ($errors->all() as $error)
