@@ -7,13 +7,13 @@
       <div class="container d-flex align-items-center">
   
         <div class="d-flex logo me-auto">
-          <a href="index.html"><img src="assets/img/1.png" alt="" class=""></a>
+          <a href="/"><img src="assets/img/1.png" alt="" class=""></a>
           <h1>Kelas Kolaborasi</h1>
     </div>
 
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
-        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+        <li><a class="nav-link scrollto active" href="/">Home</a></li>
         <li><a class="nav-link scrollto" href="#about">About</a></li>
         <li><a class="nav-link scrollto " href="#portfolio">Artikel</a></li>
         <li><a class="nav-link scrollto" href="#contact">Contact</a></li>

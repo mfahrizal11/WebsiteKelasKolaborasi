@@ -137,7 +137,7 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="post">Manfaat Poligami</a></h4>
+                <h4><a href="post">Halaman Posting</a></h4>
                 <p>App</p>
               </div>
             </div>
@@ -150,7 +150,7 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="post">Manfaat Poligami</a></h4>
+                <h4><a href="post">Kelas Kolaborasi</a></h4>
                 <p>App</p>
               </div>
             </div>
@@ -163,7 +163,7 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="post">Manfaat Poligami</a></h4>
+                <h4><a href="post">Halaman Posting</a></h4>
                 <p>App</p>
               </div>
             </div>

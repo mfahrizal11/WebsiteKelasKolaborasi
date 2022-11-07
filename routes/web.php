@@ -1,8 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Routes;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\PostController;
+use App\Models\Post;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,16 +23,16 @@ Route::get('/', function () {
 }, 
 );
 
-// User Login
-Route::post('/login',[LoginController::class,'authenticate']);
-Route::get('/login',[LoginController::class,'alihkan']);
-Route::get('/logout',[LoginController::class,'logout']);
-Route::post('/logout',[LoginController::class,'alihkan']);
+Route::get('/post', [PostController::class, 'index']);
 
-// Dashboard
-Route::get('/dashboard',[DashboardController::class,'index'])->middleware('auth');
 
-Route::get('/post', function () {
-    return view('post');
-}, 
+Route::get('/login', [LoginController::class, 'index']) ->middleware('guest'
 );
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/dashboard', function(){
+    return view('dashboard.dashboard');
+}) ;   
+
+Route::resource('/dashboard/posts', DashboardPostController::class);

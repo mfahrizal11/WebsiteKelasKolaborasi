@@ -65,7 +65,7 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="assets/img/poligami.jpg" alt="">
+                  <img src="assets/img/1.png" alt="">
                 </div>
 
                 <div class="swiper-slide">
@@ -91,7 +91,7 @@
                 </ul>
             </div>
             <div class="portfolio-description">
-              <h2>Manfaat Poligami</h2>
+              <h2>Kelas Kolaborasi</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae minus provident nobis esse excepturi recusandae, sit rem, corporis obcaecati maiores aut beatae reprehenderit quis amet tenetur fugit ad deserunt. Est quaerat incidunt, ipsa dolorem veniam voluptatibus? Facilis sunt ullam, vero itaque ipsam quam voluptatem odit exercitationem ipsum architecto repellendus! Odio omnis animi dignissimos ducimus beatae tempore, itaque quas et facilis enim est eos eligendi in. Dicta, harum tempora. Fuga autem accusantium explicabo voluptatibus, laudantium excepturi a iste reprehenderit quis harum? Aspernatur labore veritatis commodi aperiam error ab. Veritatis fugiat exercitationem dolorem iste facilis consectetur, iure itaque, optio nemo enim molestiae accusamus, et assumenda ea. Illo magni architecto, quos assumenda magnam id necessitatibus incidunt iste harum! Vitae debitis nobis minima repellat voluptas veritatis autem libero labore, adipisci at illum nulla? Reprehenderit aperiam magni distinctio at consequatur alias beatae aut repudiandae, quisquam eaque ducimus mollitia reiciendis officia quam cumque eius placeat iusto sed laboriosam soluta. Iure quos earum, cum esse voluptatibus tenetur vero nemo voluptate molestias, sapiente molestiae quibusdam! Repellat officiis itaque, aut excepturi nisi magni. Fugiat ducimus eos necessitatibus voluptatum deserunt consectetur voluptas vel sed, ab molestias cumque! Ad ratione nesciunt magni voluptatum. Ratione laborum possimus necessitatibus debitis voluptas neque itaque.</p>
             </div>
