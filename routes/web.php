@@ -32,7 +32,14 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', function(){
-    return view('dashboard.dashboard');
-}) ;   
+    return view('dashboard.index');
+}) ->middleware('auth');   
+
+Route::get('/show', function(){
+    return view('dashboard.showpost');
+}) ->middleware('auth');
 
 Route::resource('/dashboard/posts', DashboardPostController::class);
+Route::get('/create', function(){
+    return view('dashboard.create');
+}) ->middleware('auth');
