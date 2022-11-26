@@ -18,28 +18,24 @@ use App\Models\Post;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-}, 
-);
+
+Route::get('/',[PostController::class, 'index']);
 
 Route::get('/post', [PostController::class, 'index']);
 
-
-Route::get('/login', [LoginController::class, 'index']) ->middleware('guest'
-);
+Route::get('/post/{post:slug}',[PostController::class, 'show']);
+ 
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+});
+ 
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
+ 
+Route::resource('/dashboard/posts/', DashboardPostController::class);
 
-Route::get('/dashboard', function(){
-    return view('dashboard.index');
-}) ->middleware('auth');   
-
-Route::get('/show', function(){
-    return view('dashboard.showpost');
-}) ->middleware('auth');
-
-Route::resource('/dashboard/posts', DashboardPostController::class);
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSLug']);
 Route::get('/create', function(){
     return view('dashboard.create');
-}) ->middleware('auth');
+});
