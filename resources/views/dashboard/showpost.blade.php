@@ -16,7 +16,12 @@
     <div class="portfolio-description">
       <ul>
         <div class="float-left mr-3 img-fluid">
+          @if ($post->image)
+              <img src="{{asset('storage/'. $post->image)}}">
+          @else
           <img src="http://placeimg.com/640/360" alt="">
+          @endif
+
         </div>
         <h2 class="text-center">{{$post->title}}</h2>
         <p>{!!$post->body!!}</p>
@@ -27,7 +32,7 @@
   <a href="/dashboard/posts" class="btn btn-success">
     <span data-feather="arrow-left"></span> Kembali ke Halaman Post
 </a>
-<a href="" class="btn btn-warning">
+<a href="/dashboard/posts/{{$post->id}}/edit" class="btn btn-warning">
     <span data-feather="edit"></span> Edit Postingan
 </a>
 <form action="/dashboard/posts/{{$post->id}}" method="POST" class="d-inline">

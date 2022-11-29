@@ -15,8 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-            $post = Post::all();
+            $post = Post::latest()->get();
             return view ('home')->with('post', $post);
+
     }
 
     public function show(Post $post)

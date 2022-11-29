@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardPostController extends Controller
 {
@@ -38,7 +39,7 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->file('image')->store('post-image');
+        // return $request->file('image')->store('post-images');
 
         $validatedData = $request->validate(
             [
@@ -48,10 +49,15 @@ class DashboardPostController extends Controller
                 'body' => 'required'
             ]);
 
+            if($request->file('image')){
+                $validatedData['image'] = $request->file('image')->store('post-images');
+            }
+
             $validatedData['user_id'] = auth()->user()->id;
             $validatedData['excerpt'] = Str::limit(strip_tags ($request-> body), 150);
 
             Post::create($validatedData);
+
             return redirect ('/dashboard/posts')-> with('success', 'Postingan baru berhasil dibuat');
     }
     /**
@@ -91,15 +97,24 @@ class DashboardPostController extends Controller
     {
         $rules = [
                 'title' => 'required|max:255',
+                'image' => 'image',
                 'body' => 'required',
             ];
+
             if($request->slug != $post->slug){
                 $rules['slug'] = 'required|unique:posts';
             }
 
             $validatedData = $request->validate($rules);
 
-             // $validatedData['user_id'] = auth()->user(id);
+            if($request->file('image')){
+                if($request->oldImge){
+                    Storage::delete($request->oldImage);
+                }
+                $validatedData['image'] = $request->file('image')->store('post-images');
+            }
+
+            //  $validatedData['user_id'] = auth()->user(id);
              $validatedData['excerpt'] = Str::limit(strip_tags ($request-> body), 150);
 
              Post::where('id', $post->id)
@@ -115,6 +130,10 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if($post-image){
+            Storage::delete($post->image);
+        }
+
         Post::destroy($post->id);
 
         return redirect ('/dashboard/posts')-> with('success', 'Postingan berhasil dihapus');

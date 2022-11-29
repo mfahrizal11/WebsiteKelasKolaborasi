@@ -55,42 +55,34 @@
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= Portfolio Details Section ======= -->
-    <section id="portfolio-details" class="portfolio-details">
-      <div class="container-fluid ">
-        <div class="row gy-4">
-          <div class="col-lg-4">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
-                <div class="float-left mr-3 img-fluid">
-                  <img src="http://placeimg.com/640/360" alt="">
-                </div>
-              </div>
-              <div class="swiper-pagination"></div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          
+          <h1 class="mb-5">{{$post->title}}</h1>  
+
+          <p class=" text-center"> Ditulis Oleh {{$post->user->name}}, Pada {{$post->created_at}} </p>
+        @if ($post->image)    
+          <img src="{{asset('storage/'. $post->image)}}" class="img-fluid">
+        @else
+          <img src="http://placeimg.com/640/360" class="img-fluid">
+        @endif     
+          
+        <p>{!!$post->body!!}</p>
+          <a href="/" class="btn btn-outline-dark">Kembali ke Halaman Post</a>
+        </div>
+      </div>
+    </div>
+             
+
+
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>Informasi Artikel</h3>
-              <ul>
-                <li><strong>Category</strong>: Lain-Lain</li>
-                <li><strong>Penulis</strong>: {{$post->user->name}}</li>
-                <li><strong>Tanggal Artikel</strong>: {{$post->created_at}}</li>
-                </ul>
-            </div>
-            <div class="">
-              <h2>{{$post->title}}</h2>
-              <p>{!!$post->body!!}</p>
-            </div>
-          </div>
-          <a href="/" class="btn btn-outline-dark">
-            <span data-feather="arrow-left"></span> Kembali ke Halaman Post
-        </a>
+          
         </div>
 
       </div>
-    </section><!-- End Portfolio Details Section -->
-
-  </main><!-- End #main -->
+<!-- End Portfolio Details Section -->
 
   @include('tampilan.footer')
 </body>

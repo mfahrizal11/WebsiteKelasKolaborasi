@@ -44,32 +44,20 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Pembuatan Website</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <h4><a href="">Pengelolaan Website Portal Digital</a></h4>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Informasi Sekitar</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <h4><a href="">Sistem Informasi Desa dan Media Sosial</a></h4>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Wisata Perbatasan</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div>
-
         </div>
-
       </div>
     </section><!-- End What We Do Section -->
 
@@ -84,13 +72,9 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>Tentang Kami</h3>
             <p>
-              Kami adalah sebuah perusahaan yang terbentuk atas dasar permasalahan sekitar, dan kami akan menyelesaikan masalah itu dengan Berkolaborasi bersama.
+              Kelas Kolaborasi merupakan salah satu perusahaan dengan konsep yaitu berkolaborasi dengan berpakai pihak dalam memanfaatkan dan mengembangkan sistem teknologi informasi, komunikasi dan digitalisasi yang terintegrasi dalam pelayanan publik dan percepatan pengembangan ekonomi.
             </p>
-            <ul>
-              <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            </ul>
-            <div class="row icon-boxes">
+            {{-- <div class="row icon-boxes">
               <div class="col-md-6">
                 <i class="bx bx-receipt"></i>
                 <h4>Corporis voluptates sit</h4>
@@ -101,7 +85,7 @@
                 <h4>Ullamco laboris nisi</h4>
                 <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
 
@@ -114,21 +98,45 @@
         <div class="section-title">
           <h2>Artikel</h2>
         </div>
-        <article class="mb-5 border-bottom">
-        @foreach ($post as $post)
-        <div class="card mb-3">
-          <div class="card-body">
-          <img src="http://placeimg.com/640/360" class="card-img-fluid mx-auto d-block">
-            <a href= "/post/{{$post -> slug}}"><h1 class="card-title"> {{$post->title}}</h1></a>
-            <p class=" text-center"> Ditulis Oleh . {{$post->user->name}}, Pada {{$post->created_at}} </p>
-            <p class="card-text"> {{$post->excerpt}}</p>
-            <a href="/post/{{$post -> slug}}" class="">
-              <span data-feather="arrow-left"></span> Lanjutkan membaca
+          @if ($post->count())
+          <div class="card mb-3">
+            @if ($post[0]->image)
+              <img src="{{asset('storage/'. $post[0]->image)}}" class="img-fluid mx-auto d-block">
+          @else
+          <img src="http://placeimg.com/640/360" class="img-fluid mx-auto d-block">
+          @endif
+            <div class="card-body text-center">
+              <a href= "/post/{{$post[0]->slug}}"><h1 class="card-title"> {{$post[0]->title}}</h1></a>
+              <p class=" text-center"> Ditulis Oleh {{$post[0]->user->name}}, Pada {{$post[0]->created_at}} </p>
+              <p class="card-text"> {{$post[0]->excerpt}}</p>
+              <a href="/post/{{$post[0]->slug}}" class="text-decoration-none btn btn-primary">Lanjutkan Membaca</a>               
+              </div>
+          </div>  
+          @else
+            <p>Tidak ada Postingan disini</p>  
+          @endif
+          
+          <div class="container">
+            <div class="row">
+              @foreach ($post->skip(1) as $post)
+              <div class="col-md-4">
+                <div class="card">
+                  @if ($post->image)
+                    <img src="{{asset('storage/'. $post->image)}}" class="mx-auto d-block" width="400" height="400">
+                @else
+                <img src="http://placeimg.com/640/360" class="img-fluid mx-auto d-block">
+                @endif
+                  <div class="card-body text-center">
+                    <h5 class="card-title"> {{$post->title}}</h5>
+                    <p><small class=" text-center"> Ditulis Oleh {{$post->user->name}}, Pada {{$post->created_at}}</small></p>
+                    <p class="card-text"> {{$post->excerpt}}</p>
+                    <a href="/post/{{$post->slug}}" class="text-decoration-none btn btn-primary">Lanjutkan Membaca</a>               
+                    </div>
+                </div>
+              </div>
+              @endforeach
             </div>
-        </div>
-          </a>
-        </article>
-        @endforeach
+          </div>
       </div>
     </div>
     </section><!-- End Portfolio Section -->

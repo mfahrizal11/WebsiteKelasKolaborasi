@@ -13,22 +13,16 @@
 
         <div class="info-wrap">
           <div class="row">
-            <div class="col-lg-4 info">
+            <div class="col-lg-6 info">
               <i class="bi bi-geo-alt"></i>
               <h4>Location</h4>
               <p>Jalan Dr. Prof. Hadari Nawawi<br>Pontianak, Indonesia</p>
             </div>
 
-            <div class="col-lg-4 info mt-4 mt-lg-0">
+            <div class="col-lg-6 info mt-4 mt-lg-0">
               <i class="bi bi-instagram"></i>
               <h4>instagram</h4>
-              <p>info@example.com<br>contact@example.com</p>
-            </div>
-
-            <div class="col-lg-4 info mt-4 mt-lg-0">
-              <i class="bi bi-phone"></i>
-              <h4>Call</h4>
-              <p>+1 5589 55488 51<br>+1 5589 22475 14</p>
+              <p>kelas_kolaborasi<br>#InovasidanKolaborasi</p>
             </div>
           </div>
         </div>
@@ -51,11 +45,9 @@
       <div class="col-lg-3 col-md-6 footer-contact">
         <h3>Kelas Kolaborasi</h3>
         <p>
-          Universitas Tanjungpura<br>
+          Gedung Rusunawa Untan<br>
           Pontianak, Kalimantan Barat<br>
           Indonesia<br><br>
-          <strong>Phone:</strong> +1 5589 55488 55<br>
-          <strong>Email:</strong> info@example.com<br>
         </p>
         </div>
   </div>
